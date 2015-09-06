@@ -11,8 +11,13 @@
 
 class Bootstrap
 {
-    public static $output="Totals:\n";
-    public static $result=array();
+    private static $output="Totals:\n";
+    private static $result=array();
+
+    private static function beautify($raw){
+        $beauty=$raw;
+        return $beauty;
+    }
 
 	public static function main($argv)
 	{
@@ -40,6 +45,9 @@ class Bootstrap
 
             // Output formatting
             if(DEBUG) print_r(Bootstrap::$result);
+            foreach(Bootstrap::$result as $CUR=>$v){
+                Bootstrap::$output .= $CUR.' '.Bootstrap::beautify($v).PHP_EOL;
+            }
 
             die(Bootstrap::$output); // Finish programm
         }
