@@ -14,7 +14,7 @@ class Bootstrap
     private static $output="Totals:\n";
     private static $result=array();
 
-    private static function beautify($raw){
+    public static function beautify($raw){
         $beauty=$raw;
         return $beauty;
     }
@@ -58,4 +58,9 @@ class Bootstrap
 	}
 }
 
-Bootstrap::main($argv);
+//Bootstrap::main($argv);
+
+print Bootstrap::beautify('0').PHP_EOL;
+print Bootstrap::beautify('0.00').PHP_EOL;
+print Bootstrap::beautify('10000000.00').PHP_EOL;
+print Bootstrap::beautify('10000000').PHP_EOL;
