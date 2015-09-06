@@ -4,6 +4,7 @@
  * User: ershov-ilya
  * Website: ershov.pw
  * GitHub : https://github.com/ershov-ilya
+ * GitHub project : https://github.com/ershov-ilya/CurrencySolutionsTestPack
  * Date: 06.09.2015
  * Time: 13:25
  */
