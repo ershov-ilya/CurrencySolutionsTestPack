@@ -15,10 +15,18 @@ class Bootstrap
 
 	public static function main($argv)
 	{
-        print_r($argv);
-        defined('PROGRAMM_ROOT_PATH') or define('PROGRAMM_ROOT_PATH', dirname(__FILE__));
-        print Bootstrap::$output;
-		exit(0);
+        try {
+            print_r($argv);
+            if(empty($argv[1])) throw new Exception('Error: no input file! Pass input file like: php ./Bootstrap.php statement.csv', 400);
+
+            defined('PROGRAMM_ROOT_PATH') or define('PROGRAMM_ROOT_PATH', dirname(__FILE__));
+            print Bootstrap::$output;
+            exit(0);
+        }
+        catch(Exception $e){
+            print $e->getMessage().PHP_EOL;
+            exit($e->getCode());
+        }
 	}
 }
 
