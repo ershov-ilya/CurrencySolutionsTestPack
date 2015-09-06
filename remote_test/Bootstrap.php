@@ -26,8 +26,7 @@ class Bootstrap
 
             if(DEBUG) print_r($content);
 
-            print Bootstrap::$output;
-            exit(0);
+            die(Bootstrap::$output); // Finish programm
         }
         catch(Exception $e){
             print $e->getMessage().PHP_EOL;
