@@ -24,7 +24,10 @@ class Bootstrap
             $file=$argv[1];
             $content=file(PROGRAMM_ROOT_PATH.'/'.$file);
 
-            if(DEBUG) print_r($content);
+            foreach($content as $line=>$str){
+                $arr=explode(',', $str);
+                if(DEBUG) print_r($arr);
+            }
 
             die(Bootstrap::$output); // Finish programm
         }
