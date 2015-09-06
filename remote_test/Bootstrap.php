@@ -30,7 +30,16 @@ class Bootstrap
             foreach($content as $line=>$str){
                 $arr=explode(',', $str);
                 if(DEBUG) print_r($arr);
+                if(preg_match('/^pay[\d]{6}/i',$arr[1])){
+                    $CUR=$arr[9];
+                    $CUR=rtrim($CUR);
+                    if(!isset(Bootstrap::$result[$CUR])) Bootstrap::$result[$CUR]=0;
+                    Bootstrap::$result[$CUR]+=$arr[8];
+                };
             }
+
+            // Output formatting
+            if(DEBUG) print_r(Bootstrap::$result);
 
             die(Bootstrap::$output); // Finish programm
         }
