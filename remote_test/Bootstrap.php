@@ -10,7 +10,8 @@
 
 class Bootstrap
 {
-    public static $output="Programm result:\n";
+    public static $output="Totals:\n";
+    public static $result=array();
 
 	public static function main($argv)
 	{
