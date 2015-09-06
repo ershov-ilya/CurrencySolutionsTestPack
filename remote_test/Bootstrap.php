@@ -14,11 +14,6 @@ class Bootstrap
     private static $output="Totals:\n";
     private static $result=array();
 
-    public static function beautify($raw){
-        $beauty=$raw;
-        return $beauty;
-    }
-
 	public static function main($argv)
 	{
         defined('DEBUG') or define('DEBUG', true);
@@ -46,7 +41,7 @@ class Bootstrap
             // Output formatting
             if(DEBUG) print_r(Bootstrap::$result);
             foreach(Bootstrap::$result as $CUR=>$v){
-                Bootstrap::$output .= $CUR.' '.Bootstrap::beautify($v).PHP_EOL;
+                Bootstrap::$output .= $CUR.' '.number_format($v, 2).PHP_EOL;
             }
 
             die(Bootstrap::$output); // Finish programm
@@ -58,9 +53,4 @@ class Bootstrap
 	}
 }
 
-//Bootstrap::main($argv);
-
-print Bootstrap::beautify('0').PHP_EOL;
-print Bootstrap::beautify('0.00').PHP_EOL;
-print Bootstrap::beautify('10000000.00').PHP_EOL;
-print Bootstrap::beautify('10000000').PHP_EOL;
+Bootstrap::main($argv);
