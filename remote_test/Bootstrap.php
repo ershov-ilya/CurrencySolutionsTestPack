@@ -34,7 +34,12 @@ class Bootstrap
             // Parse file
             foreach($content as $line=>$str){
                 $arr=explode(',', $str);
-                if(DEBUG) print_r($arr);
+                if(count($arr)<10) {
+                    print "Catched error: Line #".($line+1)." is incorrectly formatted - skipped\n";
+                    continue;
+                }
+                if(DEBUG) print count($arr).PHP_EOL;
+//                if(DEBUG) print_r($arr);
                 if(preg_match('/^pay[\d]{6}/i',$arr[1])){
                     $CUR=$arr[9];
                     $CUR=rtrim($CUR);
