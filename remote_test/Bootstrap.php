@@ -19,12 +19,17 @@ class Bootstrap
         defined('DEBUG') or define('DEBUG', false);
         try {
             if(DEBUG) print_r($argv);
-            if(empty($argv[1])) throw new Exception('Catched error: "no input file". Pass the input file as parameter like: "php ./Bootstrap.php statement.csv"', 400);
+            if(empty($argv[1])) {
+                // throw new Exception('Catched error: "no input file". Pass the input file as parameter like: "php ./Bootstrap.php statement.csv"', 400);
+                print "Catched error: \"no input file\".\n";
+                system('./example.sh');
+                die;
+            }
 
             // Read file
-            defined('PROGRAMM_ROOT_PATH') or define('PROGRAMM_ROOT_PATH', dirname(__FILE__));
+            defined('PROGRAMM_ROOT_PATH') or define('PROGRAMM_ROOT_PATH', dirname(__FILE__).'/');
             $file=$argv[1];
-            $content=file(PROGRAMM_ROOT_PATH.'/'.$file);
+            $content=file(PROGRAMM_ROOT_PATH.$file);
 
             // Parse file
             foreach($content as $line=>$str){
